@@ -1,0 +1,170 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "Garden": "Roosevelt Blvd Community Garden",
+                "Location": "415 Roosevelt Blvd, 40508",
+                "Description": "Public, free u-pick garden."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.50866,
+                    38.06769
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Garden": "Whitney Avenue Community Garden",
+                "Location": "829 Whitney Ave, 40508",
+                "Description": "Garden withe extensive raspberry and blackberry patch."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.50681,
+                    38.06123
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Garden": "North Pole Community Garden",
+                "Location": "909 N Limestone, 40505",
+                "Description": "Garden and permaculture food forest."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.48178,
+                    38.05901
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Garden": "Bryan Avenue Community Garden",
+                "Location": "845 Bryan Avenue, 40505",
+                "Description": "Public free u-pick garden."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.48059,
+                    38.056189
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Garden": "London Ferrill Community Garden",
+                "Location": "235 E Third Street, 40508",
+                "Description": "Garden and orchard with plum, apple and persimmon trees. Open during select hours. Lots available for rent."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.49205,
+                    38.04768
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Garden": "Ohio Street",
+                "Location": "544 Ohio Street, 40508",
+                "Description": "Public free u-pick garden"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.48493,
+                    38.0493
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Garden": "Nelson Avenue Community Garden",
+                "Location": "311 Nelson Avenue, 40508",
+                "Description": "Public free u-pick orchard with figs and sour cherry trees."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.48434,
+                    38.04331
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Garden": "Grace Garden",
+                "Location": "449 Race Street, 40508",
+                "Description": "Public free u-pick permaculture garden with primarily fruiting trees."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.48549,
+                    38.04654
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Garden": "Breadbox Garden",
+                "Location": "501 W Sixth Street, 40508",
+                "Description": "Public free garden located in the middle of the West Sixth Brewery Parking lot."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.49398,
+                    38.05967
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Garden": "Seedleaf Community Urban Farm",
+                "Location": "1411 N Limestone, 40505",
+                "Description": "Urban community farm and site of Seedleaf's Market Garden Program."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.47582,
+                    38.06343
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Garden": "Castlewood Park Orchard",
+                "Location": " Castlewood Park, 40505",
+                "Description": "Public free u-pick garden."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.47665,
+                    38.05543
+                ]
+            }
+        }
+    ]
+}

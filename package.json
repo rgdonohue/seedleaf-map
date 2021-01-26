@@ -1,0 +1,24 @@
+{
+  "name": "seadleaf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel serve src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "core-js": "^3.8.3",
+    "leaflet": "^1.7.1",
+    "leaflet-control-geocoder": "^2.1.0",
+    "leaflet-geosearch": "^3.2.1",
+    "regenerator-runtime": "^0.13.7",
+    "unfetch": "^4.2.0"
+  }
+}
