@@ -79,21 +79,6 @@
         {
             "type": "Feature",
             "properties": {
-                "Garden": "Ohio Street",
-                "Location": "544 Ohio Street, 40508",
-                "Description": "Public free u-pick garden"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -84.48493,
-                    38.0493
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "Garden": "Nelson Avenue Community Garden",
                 "Location": "311 Nelson Avenue, 40508",
                 "Description": "Public free u-pick orchard with figs and sour cherry trees."
