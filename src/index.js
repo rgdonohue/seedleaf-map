@@ -37,16 +37,15 @@ L.Control.geocoder({
   defaultMarkGeocode: false,
   collapsed: false,
   queryMinLength: 4,
-})
-  .on('markgeocode', (e) => {
-    console.log(e);
-  })
-  .addTo(map);
+}).on('markgeocode', (e) => {
+  console.log(e);
+});
+// .addTo(map);
 
 function onEachFeature(feature, layer) {
-  const text = `<b>Garden:</b> ${feature.properties.Garden}<br>
+  const text = `<div class='tt'><b>Garden:</b> ${feature.properties.Garden}<br>
                <b>Address:</b> ${feature.properties.Location}<br>
-               <b>Description:</b> ${feature.properties.Description}`;
+               <b>Description:</b> ${feature.properties.Description}</div>`;
 
   layer.bindTooltip(text);
 }

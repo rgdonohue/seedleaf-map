@@ -4,14 +4,3 @@
   bottom: 0;
   width: 100%;
 }
-
-.leaflet-tooltip {
-  font-size: 120%;
-  width: 260px;
-  white-space: normal;
-}
-
-.leaflet-geosearch-bar {
-  position: absolute !important;
-  right: 30px;
-}

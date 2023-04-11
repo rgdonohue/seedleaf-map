@@ -1,24 +1,23 @@
 {
-  "name": "seadleaf",
+  "name": "seedleaf-map",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "source": "src/index.html",
   "scripts": {
-    "start": "parcel serve src/index.html",
-    "build": "parcel build src/index.html"
+    "start": "parcel",
+    "build": "parcel build"
   },
-  "keywords": [],
-  "author": "",
+  "author": "rgdonohue",
   "license": "ISC",
   "devDependencies": {
-    "parcel-bundler": "^1.12.4"
+    "parcel": "^2.8.3",
+    "process": "^0.11.10"
   },
   "dependencies": {
-    "core-js": "^3.8.3",
-    "leaflet": "^1.7.1",
-    "leaflet-control-geocoder": "^2.1.0",
-    "leaflet-geosearch": "^3.2.1",
-    "regenerator-runtime": "^0.13.7",
-    "unfetch": "^4.2.0"
+    "core-js": "^3.30.0",
+    "leaflet": "^1.9.3",
+    "leaflet-control-geocoder": "^2.4.0",
+    "leaflet-geosearch": "^3.7.0",
+    "unfetch": "^5.0.0"
   }
 }
