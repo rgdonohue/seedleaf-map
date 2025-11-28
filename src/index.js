@@ -1,9 +1,12 @@
-import 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import 'leaflet-control-geocoder/dist/Control.Geocoder.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import './index.css';
 import './leaflet-beautify-marker-icon.css';
 import BeautifyIcon from './leaflet-beautify-marker-icon.js';
 import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
-import '../node_modules/leaflet-geosearch/dist/geosearch.css';
+import 'leaflet-geosearch/dist/geosearch.css';
 import 'unfetch/polyfill';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
@@ -23,29 +26,18 @@ L.tileLayer(
   }
 ).addTo(map);
 
-// const searchControl = new GeoSearchControl({
-//   style: 'bar',
-//   searchLabel: 'Search address',
-//   position: 'topright',
-//   provider: new OpenStreetMapProvider(),
-//   retainZoomLevel: true,
-// });
-
-// map.addControl(searchControl);
-
 L.Control.geocoder({
   defaultMarkGeocode: false,
   collapsed: false,
   queryMinLength: 4,
 }).on('markgeocode', (e) => {
-  console.log(e);
+  // console.log(e);
 });
-// .addTo(map);
 
 function onEachFeature(feature, layer) {
-  const text = `<div class='tt'><b>Garden:</b> ${feature.properties.Garden}<br>
-               <b>Address:</b> ${feature.properties.Location}<br>
-               <b>Description:</b> ${feature.properties.Description}</div>`;
+  const text = `<ul><li><b>Garden:</b> ${feature.properties.Garden}</li>
+  <li><b>Address:</b> ${feature.properties.Location}</li>
+  <li><b>Description:</b> ${feature.properties.Description}</li></ul>`;
 
   layer.bindTooltip(text);
 }
