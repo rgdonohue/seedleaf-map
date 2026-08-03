@@ -4,7 +4,7 @@
         {
             "type": "Feature",
             "properties": {
-                "Garden": "Roosevelt Blvd Community Garden",
+                "Garden": "Ella & Anthony Wilson Community Garden",
                 "Location": "415 Roosevelt Blvd, 40508",
                 "Description": "Public, free u-pick garden."
             },
@@ -21,7 +21,7 @@
             "properties": {
                 "Garden": "Whitney Avenue Community Garden",
                 "Location": "829 Whitney Ave, 40508",
-                "Description": "Garden withe extensive raspberry and blackberry patch."
+                "Description": "Garden with an outdoor gym"
             },
             "geometry": {
                 "type": "Point",
@@ -36,7 +36,7 @@
             "properties": {
                 "Garden": "North Pole Community Garden",
                 "Location": "909 N Limestone, 40505",
-                "Description": "Garden and permaculture food forest."
+                "Description": "Garden with several pawpaw, persimmons, and American plum trees"
             },
             "geometry": {
                 "type": "Point",
@@ -81,7 +81,7 @@
             "properties": {
                 "Garden": "Nelson Avenue Community Garden",
                 "Location": "311 Nelson Avenue, 40508",
-                "Description": "Public free u-pick orchard with figs and sour cherry trees."
+                "Description": "Public u-pick with figs and American plum trees"
             },
             "geometry": {
                 "type": "Point",
@@ -141,13 +141,43 @@
             "properties": {
                 "Garden": "Castlewood Park Orchard",
                 "Location": " Castlewood Park, 40505",
-                "Description": "Public free u-pick garden."
+                "Description": "Asian pear, elderberry, and persimmon trees"
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -84.47665,
                     38.05543
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Garden": "Central Baptist Church Orchard",
+                "Location": "110 Wilson Downing Rd., Lexington, KY 40517",
+                "Description": "Small orchard with a variety of peach, pear, apple, and fig trees."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.5258649,
+                    37.9848728
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Garden": "Headwater Farm",
+                "Location": "3201 Houston Antioch Road, Lexington, KY 40516",
+                "Description": "30 Acre Community Farm"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.3345749,
+                    38.0751919
                 ]
             }
         }
