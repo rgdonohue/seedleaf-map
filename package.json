@@ -5,6 +5,7 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
+    "prebuild": "rm -rf dist .parcel-cache",
     "build": "parcel build"
   },
   "author": "rgdonohue",
