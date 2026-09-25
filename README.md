@@ -1,6 +1,6 @@
 # seedleaf-map
 
-An interactive map for [Seedleaf](https://seedleaf.com), showing the community gardens, orchards, and farms it supports around Lexington, KY. It's a small static site built with [Parcel](https://parceljs.org/) and [Leaflet](https://leafletjs.com/), with no backend — all location data lives in a single file.
+An interactive map for [Seedleaf](https://www.seedleaf.org), showing the community gardens, orchards, and farms it supports around Lexington, KY. It's a small static site built with [Parcel](https://parceljs.org/) and [Leaflet](https://leafletjs.com/), with no backend — all location data lives in a single file.
 
 ## Running the project
 
@@ -12,6 +12,8 @@ cp .env.example .env
 
 `.env` is gitignored, so the key won't be committed. Parcel reads it at build time, so restart `npm start` after changing it.
 
+This project uses Node.js 24 (listed in `.nvmrc`; with [nvm](https://github.com/nvm-sh/nvm), run `nvm use`).
+
 ```
 npm install
 npm start
@@ -19,7 +21,7 @@ npm start
 
 This starts a local dev server (Parcel will print the URL, usually `http://localhost:1234`) and rebuilds automatically as you edit files.
 
-To produce a production build (output goes to `dist/`):
+To produce a production build (output goes to `dist/`), run the command below. It runs the data check described below first, and stops if the check finds a problem:
 
 ```
 npm run build
@@ -71,6 +73,12 @@ The file has one entry per location, shaped like this:
 4. **Important:** GeoJSON coordinates are written as `[longitude, latitude]` — the *opposite* order from how coordinates are usually written (`latitude, longitude`). This is the easiest mistake to make, so double-check it.
 5. Save the file, making sure it's still valid JSON — no trailing comma after the very last entry in the list, and every `{`, `}`, `[`, `]` should be balanced.
 
+### Editing from the GitHub website
+
+You can edit `src/data.json` without installing anything: open the file on GitHub, click the pencil icon, make your change, and click **Commit changes**. Publishing still requires the steps under [Running the project](#running-the-project).
+
 ### Checking your change
 
-Run `npm start`, open the local dev server in your browser, and confirm your new or edited marker appears in the right place with the right popup text before publishing.
+Run `npm run check` to catch the most common mistakes: invalid JSON (a missing or extra comma), an empty `Garden`/`Location`/`Description`, or coordinates outside the Lexington area (usually swapped longitude and latitude). It prints what's wrong and which location it's in.
+
+Then run `npm start`, open the local dev server in your browser, and confirm your new or edited marker appears in the right place with the right popup text before publishing.

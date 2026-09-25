@@ -5,8 +5,9 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
-    "prebuild": "rm -rf dist .parcel-cache",
-    "build": "parcel build",
+    "check": "node scripts/check-data.js",
+    "prebuild": "npm run check && rm -rf dist .parcel-cache",
+    "build": "parcel build --public-url ./",
     "deploy": "npm run build && cp src/CNAME dist/ && surge dist"
   },
   "author": "rgdonohue",
@@ -16,12 +17,7 @@
     "process": "^0.11.10"
   },
   "dependencies": {
-    "core-js": "^3.30.0",
-    "leaflet": "^1.9.3",
-    "leaflet-control-geocoder": "^2.4.0",
-    "leaflet-geosearch": "^3.7.0",
-    "unfetch": "^5.0.0",
-    "bootstrap": "^4.6.2",
-    "@fortawesome/fontawesome-free": "^6.4.0"
+    "@fortawesome/fontawesome-free": "^6.4.0",
+    "leaflet": "^1.9.3"
   }
 }

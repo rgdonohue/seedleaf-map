@@ -1,20 +1,13 @@
+import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import 'leaflet-control-geocoder/dist/Control.Geocoder.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './index.css';
 import './leaflet-beautify-marker-icon.css';
-import BeautifyIcon from './leaflet-beautify-marker-icon.js';
-import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
-import 'leaflet-geosearch/dist/geosearch.css';
-import 'unfetch/polyfill';
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
-import 'leaflet-control-geocoder';
+import './leaflet-beautify-marker-icon.js';
 
 import data from './data.json';
 
-const map = L.map('map').setView([38.0559, -84.4893], 14);
+const map = L.map('map');
 
 L.tileLayer(
   'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key={key}',
@@ -26,14 +19,6 @@ L.tileLayer(
     maxZoom: 19,
   }
 ).addTo(map);
-
-L.Control.geocoder({
-  defaultMarkGeocode: false,
-  collapsed: false,
-  queryMinLength: 4,
-}).on('markgeocode', (e) => {
-  // console.log(e);
-});
 
 function onEachFeature(feature, layer) {
   const text = `<ul><li><b>Garden:</b> ${feature.properties.Garden}</li>
@@ -60,7 +45,10 @@ function pointToLayer(geoJsonPoint, latlng) {
   });
 }
 
-L.geoJSON(data, {
+const locations = L.geoJSON(data, {
   pointToLayer,
   onEachFeature,
 }).addTo(map);
+
+// Frame every location, so newly added ones are visible on load
+map.fitBounds(locations.getBounds(), { padding: [30, 30] });
