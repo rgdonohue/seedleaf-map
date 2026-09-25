@@ -4,6 +4,14 @@ An interactive map for [Seedleaf](https://seedleaf.com), showing the community g
 
 ## Running the project
 
+The basemap tiles come from CARTO, which requires an API key. Copy `.env.example` to `.env` and paste the key in:
+
+```
+cp .env.example .env
+```
+
+`.env` is gitignored, so the key won't be committed. Parcel reads it at build time, so restart `npm start` after changing it.
+
 ```
 npm install
 npm start
@@ -16,6 +24,14 @@ To produce a production build (output goes to `dist/`):
 ```
 npm run build
 ```
+
+To publish to [surge](https://surge.sh) (builds, copies `src/CNAME` so surge knows the domain, and uploads `dist/`):
+
+```
+npm run deploy
+```
+
+Always deploy the built `dist/` folder, never `src/` — the browser can't run the source files directly.
 
 ## Updating or adding a location
 
