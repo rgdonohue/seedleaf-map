@@ -20,28 +20,35 @@ Transferring the repo (GitHub Settings → Transfer) would also work and keeps r
 
 ### 1. Prep the code (Richard, in this repo)
 
-So that what gets cloned works as-is:
+So that what gets cloned works as-is. Done in three batches, each deployed to surge separately so the live map never breaks:
 
-- [x] **Fit the initial view to all locations.** The map currently opens at a fixed zoom 14 downtown, so Central Baptist Church Orchard and Headwater Farm (8–13 km out) are off-screen on load. Use `map.fitBounds()` on the GeoJSON layer instead.
+- **Batch 1** (done 2026-09-25, commit `fa67c30`, deployed): view, cleanup, relative paths, data check, Node pin, README basics.
+- **Batch 2:** Parcel upgrade, on its own so any build change is easy to trace.
+- **Batch 3:** the GitHub Pages workflow. It doesn't touch surge. Optionally, enable Pages on this repo as a rehearsal at `rgdonohue.github.io/seedleaf-map`.
+
+- [x] **Fit the initial view to all locations.** The map used to open at a fixed zoom 14 downtown, so Central Baptist Church Orchard and Headwater Farm (8–13 km out) were off-screen on load. It now uses `map.fitBounds()` on the GeoJSON layer. Trade-off: the wider view puts the 10 downtown markers close together and a few overlap. If that's a problem, marker clustering would help.
 - [x] **Remove dead code and unused dependencies:**
-  - the geocoder control that's created but never added to the map;
+  - the geocoder control that was created but never added to the map, plus the `leaflet-control-geocoder` package;
   - the `leaflet-geosearch` import and package;
-  - Bootstrap, which appears unused;
-  - the `regenerator-runtime` import, which only resolves because Parcel pulls it in indirectly.
-- [x] **Add an explicit `import L from 'leaflet'`** in `src/index.js`, which currently relies on the global `L`.
-- [ ] **Update the tooling:** upgrade Parcel (2.8.3 → 2.16.x) and pin a Node LTS version. Node is pinned to 24 in `.nvmrc`; Parcel is still to do. (Don't add `engines.node` to `package.json`: Parcel then treats the project as a Node app and the browser build fails.)
+  - Bootstrap. Only its base styles were in use; the two that mattered (`body { margin: 0 }` and the tooltip's `box-sizing: border-box`) are now in `src/index.css`;
+  - the `unfetch` and `core-js` polyfills, which only helped old browsers that can't run the page's module script anyway;
+  - the `regenerator-runtime` import, which only resolved because Parcel pulled it in indirectly.
+
+  Result: the download went from about 440 KB to 236 KB, and the markers and tooltips measured the same as on the live site (size, border, icon position, tooltip dimensions and font).
+- [x] **Add an explicit `import L from 'leaflet'`** in `src/index.js`, which used to rely on the global `L`.
+- [ ] **Update the tooling:** upgrade Parcel (2.8.3 → 2.16.x) and pin a Node LTS version. Node is pinned to 24 in `.nvmrc` (done). Parcel is still to do (batch 2). It should also clear the 12 `npm audit` warnings, all in Parcel's build tools. Nothing that ships to visitors is affected: `npm audit --omit=dev` reports 0. (Don't add `engines.node` to `package.json`: Parcel then treats the project as a Node app and the browser build fails.)
 - [x] **Build with relative paths.** GitHub Pages project sites live at `https://<user>.github.io/seedleaf-map/`. Parcel's default absolute paths (`/index.xxxx.js`) would 404 there, so the Pages build needs `--public-url ./`.
-- [x] **Add a data check script** that fails if `src/data.json` is invalid JSON or any coordinate falls outside the Lexington area. This catches the swapped longitude/latitude mistake the README warns about.
+- [x] **Add a data check script** (`scripts/check-data.js`, `npm run check`). It fails if `src/data.json` is invalid JSON, a text field is empty, or any coordinate falls outside the Lexington area, and it points out swapped longitude/latitude. It runs automatically before every build, so bad data can't be deployed.
 - [ ] **Add a GitHub Actions workflow** (`.github/workflows/deploy.yml`) that runs on every push to `main`:
   1. install with `npm ci`, on the pinned Node version;
   2. run the data check;
   3. build, reading `CARTO_API_KEY` from a repo secret;
   4. deploy `dist/` to GitHub Pages.
 - [ ] **Update the README:**
-  - fix the link (seedleaf.**com** → seedleaf.org);
-  - document editing `data.json` through GitHub's web editor (edit → commit → map redeploys automatically, no local setup needed);
-  - replace the surge deploy section with the Pages workflow;
-  - add a "who owns what" section (see step 5).
+  - [x] fix the link (seedleaf.**com** → seedleaf.org);
+  - [x] document editing `data.json` through GitHub's web editor, `npm run check`, and the Node version. The "map redeploys automatically" part gets added with the workflow;
+  - [ ] replace the surge deploy section with the Pages workflow;
+  - [x] add a "who owns what" section (see step 5). Done as "Accounts and ownership"; the new maintainers update it at handoff.
 
 ### 2. Set up the new repo (new maintainers)
 
@@ -85,5 +92,6 @@ Put this in the new repo's README:
 
 ## Other notes
 
-- The project is licensed GPL-3.0; the new maintainers inherit that.
-- `npm audit` reports no vulnerabilities in the runtime dependencies (checked 2026-09-25).
+- **License mismatch:** the `LICENSE` file is GPL-3.0, but `package.json` says `"license": "ISC"`. Pick one and make them match before the handoff. The new maintainers inherit whichever it is.
+- `npm audit --omit=dev` reports no vulnerabilities in what ships to visitors (checked 2026-09-25). The full `npm audit` shows 12 warnings in Parcel's build tools (see batch 2).
+- Not yet tested: the layout at phone width, and building on Node 24 specifically (batch 1 was built on Node 25).
